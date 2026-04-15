@@ -4,8 +4,9 @@ import { signOut } from "@/lib/auth/auth-client";
 import { DropdownMenuItem } from "./ui/dropdown-menu";
 import { useRouter } from "next/navigation";
 
-const SignOutButton = () => {
+export default function SignOutButton() {
   const router = useRouter();
+
   return (
     <DropdownMenuItem
       onClick={async () => {
@@ -13,13 +14,11 @@ const SignOutButton = () => {
         if (result.data) {
           router.push("/sign-in");
         } else {
-          alert("Error logging out");
+          alert("Error signing out");
         }
       }}
     >
       Log Out
     </DropdownMenuItem>
   );
-};
-
-export default SignOutButton;
+}
